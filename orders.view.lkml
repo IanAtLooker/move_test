@@ -11,20 +11,11 @@ filter: time_filter {
   }
 
 
-  dimension: created {
-    type: string
+  dimension_group: created {
+    type: time
 
     sql: ${TABLE}.created_at ;;
-    html:
 
-    {% assign foo = "now" | date: '%s' | divided_by: 86400 | minus: 90 %}
-          {% assign bar = value | date: '%s' | divided_by: 86400  %}
-          {% if bar <= foo  %}
-               date is older than 90 days
-          {% else %}
-               no it isn’t
-          {% endif %}
-        ;;
 }
 
 
